@@ -9,10 +9,12 @@ export const PKG_ROOT = path.join(distPath, "../");
 
 //export const PKG_ROOT = path.dirname(require.main.filename);
 
-export const TITLE_TEXT = `   ___ ___ ___   __ _____ ___   _____ ____    __   ___ ___
-  / __| _ \\ __| /  \\_   _| __| |_   _|__ /   /  \\ | _ \\ _ \\
- | (__|   / _| / /\\ \\| | | _|    | |  |_ \\  / /\\ \\|  _/  _/
-  \\___|_|_\\___|_/‾‾\\_\\_| |___|   |_| |___/ /_/‾‾\\_\\_| |_|
+export const TITLE_TEXT = ` 
+                       __                                                                       
+.----.----.-----.---.-|  |_.-----.______.--.--.--.--.--------.--------.______.---.-.-----.-----.
+|  __|   _|  -__|  _  |   _|  -__|______|_   _|  |  |        |        |______|  _  |  _  |  _  |
+|____|__| |_____|___._|____|_____|      |__.__|_____|__|__|__|__|__|__|      |___._|   __|   __|
+                                                                                   |__|  |__|                                                                                            
 `;
-export const DEFAULT_APP_NAME = "my-t3-app";
-export const CREATE_T3_APP = "create-t3-app";
+export const DEFAULT_APP_NAME = "my-xumm-app";
+export const CREATE_XUMM_APP = "create-xumm-app";

@@ -3,8 +3,8 @@ import { availablePackages } from "~/installers/index.js";
 import chalk from "chalk";
 import { Command } from "commander";
 import inquirer from "inquirer";
-import { CREATE_T3_APP, DEFAULT_APP_NAME } from "~/consts.js";
-import { getVersion } from "~/utils/getT3Version.js";
+import { CREATE_XUMM_APP, DEFAULT_APP_NAME } from "~/consts.js";
+import { getVersion } from "~/utils/getXummVersion.js";
 import { getUserPkgManager } from "~/utils/getUserPkgManager.js";
 import { logger } from "~/utils/logger.js";
 import { validateAppName } from "~/utils/validateAppName.js";
@@ -44,7 +44,7 @@ const defaultOptions: CliResults = {
 export const runCli = async () => {
   const cliResults = defaultOptions;
 
-  const program = new Command().name(CREATE_T3_APP);
+  const program = new Command().name(CREATE_XUMM_APP);
 
   // TODO: This doesn't return anything typesafe. Research other options?
   // Emulate from: https://github.com/Schniz/soundtype-commander
@@ -179,7 +179,7 @@ export const runCli = async () => {
     // Otherwise we have to do some fancy namespace extension logic on the Error type which feels overkill for one line
     if (err instanceof Error && (err as any).isTTYError) {
       logger.warn(
-        `${CREATE_T3_APP} needs an interactive terminal to provide options`,
+        `${CREATE_XUMM_APP} needs an interactive terminal to provide options`,
       );
       logger.info(`Bootstrapping a default t3 app in ./${cliResults.appName}`);
     } else {

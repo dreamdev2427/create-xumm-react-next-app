@@ -15,7 +15,7 @@ import {
   renderVersionWarning,
 } from "./utils/renderVersionWarning.js";
 import { installDependencies } from "./helpers/installDependencies.js";
-import { getVersion } from "./utils/getT3Version.js";
+import { getVersion } from "./utils/getXummVersion.js";
 
 type CT3APackageJSON = PackageJson & {
   ct3aMetadata?: {

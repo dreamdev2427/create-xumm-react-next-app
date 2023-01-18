@@ -13,12 +13,12 @@ const poimandresTheme = {
 };
 
 export const renderTitle = () => {
-  const t3Gradient = gradient(Object.values(poimandresTheme));
+  const xummGradient = gradient(Object.values(poimandresTheme));
 
   // resolves weird behavior where the ascii is offset
   const pkgManager = getUserPkgManager();
   if (pkgManager === "yarn" || pkgManager === "pnpm") {
     console.log("");
   }
-  console.log(t3Gradient.multiline(TITLE_TEXT));
+  console.log(xummGradient.multiline(TITLE_TEXT));
 };

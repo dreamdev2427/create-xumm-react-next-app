@@ -1,10 +1,10 @@
 {
-  "name": "@ct3a/root",
-  "version": "0.0.0",
+  "name": "@standardconnect/create-xumm-app",
+  "version": "0.0.1",
   "description": "Quickest way to start a new web app with full stack typesafety",
-  "author": "Shoubhit Dash <shoubhit2005@gmail.com> (https://nexxel.dev)",
+  "author": "intercoder <intercoder@whirled.io>",
   "maintainers": [
-    "Julius Marminge <julius0216@outlook.com> (https://jumr.dev)"
+    "intercoder <intercoder@whirled.io>"
   ],
   "type": "module",
   "license": "MIT",

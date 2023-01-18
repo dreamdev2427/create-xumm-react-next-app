@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import { getVersion } from "./getT3Version.js";
+import { getVersion } from "./getXummVersion.js";
 import { logger } from "./logger.js";
 
 export const renderVersionWarning = (npmVersion: string) => {
