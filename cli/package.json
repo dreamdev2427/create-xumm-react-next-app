@@ -1,6 +1,6 @@
 {
   "name": "create-xumm-app",
-  "version": "7.3.1",
+  "version": "0.0.2",
   "description": "Create web application with the create-xumm-app stack",
   "license": "MIT",
   "repository": {
@@ -12,7 +12,7 @@
     "create-xumm-app",
     "init.tips",
     "next.js",
-    "t3-stack",
+    "xumm-app-stack",
     "tailwind",
     "tRPC",
     "typescript"
@@ -20,7 +20,7 @@
   "type": "module",
   "exports": "./dist/index.js",
   "bin": {
-    "create-t3-app": "./dist/index.js"
+    "create-xumm-app": "./dist/index.js"
   },
   "engines": {
     "node": ">=14.16"
