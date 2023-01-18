@@ -22,6 +22,7 @@ interface CliFlags {
 
 interface CliResults {
   appName: string;
+  framework: string;
   packages: AvailablePackages[];
   flags: CliFlags;
 }
@@ -29,6 +30,7 @@ interface CliResults {
 const defaultOptions: CliResults = {
   appName: DEFAULT_APP_NAME,
   packages: ["nextAuth", "prisma", "tailwind", "trpc"],
+  framework: "next",
   flags: {
     noGit: false,
     noInstall: false,
@@ -49,7 +51,7 @@ export const runCli = async () => {
   // TODO: This doesn't return anything typesafe. Research other options?
   // Emulate from: https://github.com/Schniz/soundtype-commander
   program
-    .description("A CLI for creating web applications with the t3 stack")
+    .description("A CLI for creating web applications with the create-xumm-app stack")
     .argument(
       "[dir]",
       "The name of the application, as well as the name of the directory to create",
@@ -115,7 +117,7 @@ export const runCli = async () => {
     .version(getVersion(), "-v, --version", "Display the version number")
     .addHelpText(
       "afterAll",
-      `\n The t3 stack was inspired by ${chalk
+      `\n The create-xumm-app stack was inspired by ${chalk
         .hex("#E8DCFF")
         .bold(
           "@t3dotgg",
@@ -163,6 +165,7 @@ export const runCli = async () => {
         cliResults.appName = await promptAppName();
       }
 
+      cliResults.framework= await promptFramework();
       await promptLanguage();
       cliResults.packages = await promptPackages();
       if (!cliResults.flags.noGit) {
@@ -203,6 +206,22 @@ const promptAppName = async (): Promise<string> => {
   });
 
   return appName;
+};
+
+
+const promptFramework = async (): Promise<string> => {
+  const { framework } = await inquirer.prompt<{ framework: string }>({
+    name: "framework",
+    type: "list",
+    message: "Which framework will you be using?",
+    choices: [
+      { name: "Next", value: "next", short: "Next" },
+      { name: "React", value: "react", short: "React" },
+    ],
+    default: "next",
+  });
+
+  return framework
 };
 
 const promptLanguage = async (): Promise<void> => {

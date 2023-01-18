@@ -10,11 +10,12 @@ import { logger } from "~/utils/logger.js";
 // This bootstraps the base Next.js application
 export const scaffoldProject = async ({
   projectName,
+  framework,
   projectDir,
   pkgManager,
   noInstall,
 }: InstallerOptions) => {
-  const srcDir = path.join(PKG_ROOT, "template/base");
+  const srcDir = path.join(PKG_ROOT, `template/${framework}`);
 
   if (!noInstall) {
     logger.info(`\nUsing: ${chalk.cyan.bold(pkgManager)}\n`);

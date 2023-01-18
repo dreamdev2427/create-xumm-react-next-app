@@ -9,7 +9,7 @@ import { logNextSteps } from "~/helpers/logNextSteps.js";
 import { buildPkgInstallerMap } from "~/installers/index.js";
 import { logger } from "~/utils/logger.js";
 import { parseNameAndPath } from "~/utils/parseNameAndPath.js";
-import { renderTitle } from "~/utils/renderTitle.js";
+import { renderTitle, renderSubTitle } from "~/utils/renderTitle.js";
 import {
   getNpmVersion,
   renderVersionWarning,
@@ -26,10 +26,12 @@ type CT3APackageJSON = PackageJson & {
 const main = async () => {
   const npmVersion = await getNpmVersion();
   renderTitle();
+    renderSubTitle();
   npmVersion && renderVersionWarning(npmVersion);
 
   const {
     appName,
+    framework,
     packages,
     flags: { noGit, noInstall },
   } = await runCli();
@@ -41,6 +43,7 @@ const main = async () => {
 
   const projectDir = await createProject({
     projectName: appDir,
+    framework:framework,
     packages: usePackages,
     noInstall,
   });
