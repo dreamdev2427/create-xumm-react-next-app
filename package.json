@@ -4,16 +4,17 @@
   "description": "Quickest way to start a new web app with full stack typesafety",
   "author": "intercoder <intercoder@whirled.io>",
   "maintainers": [
-    "intercoder <intercoder@whirled.io>"
+    "intercoder <intercoder@whirled.io>",
+    "claytantor <clay@rapaygo.com>"
   ],
   "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/t3-oss/create-t3-app.git"
+    "url": "https://github.com/standardconnect/create-xumm-app"
   },
   "keywords": [
-    "create-t3-app",
+    "create-xumm-app",
     "init.tips",
     "next.js",
     "t3-stack",
