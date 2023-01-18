@@ -18,6 +18,7 @@ export type AvailablePackages = typeof availablePackages[number];
 
 export interface InstallerOptions {
   projectDir: string;
+  framework:string;
   pkgManager: PackageManager;
   noInstall: boolean;
   packages?: PkgInstallerMap;

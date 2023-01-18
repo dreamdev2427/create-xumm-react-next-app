@@ -16,5 +16,12 @@ export const TITLE_TEXT = `
 |____|__| |_____|___._|____|_____|      |__.__|_____|__|__|__|__|__|__|      |___._|   __|   __|
                                                                                    |__|  |__|                                                                                            
 `;
+
+export const SUBTITLE_TEXT = ` 
+  _           _  __  ___ _ ____ ___    _____       _   __  __          ___ __  __      
+ /_| __  __  / )/__)(_  /_| /  (_   __  /  _) __  /_| /__)/__) __  __ (_  /  )/__)/__/ 
+(  |        (__/ (  /__(  |(   /__     (  __)    (  |/   /            /  (__// ( /  )                                                                                  
+`;
+
 export const DEFAULT_APP_NAME = "my-xumm-app";
 export const CREATE_XUMM_APP = "create-xumm-app";

@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'Kanit-Regular';
+  src: url('./assets/fonts/Kanit/Kanit-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'JetBrainsMono-VariableFont';
+  src: url('./assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+}
+
+.bg-footer {
+  background-color: #2a1624
+}
+
+@layer components { 
+
+  body {
+    @apply bg-gray-900;
+    @apply text-gray-100;
+    @apply font-sans;
+  } 
+
+  h1,h2,h3,h4,h5,h6 {
+    @apply font-sans;
+    font-weight: 700; 
+  }
+
+  h1 {
+      @apply text-4xl;
+  }
+
+  h2 {
+      @apply text-3xl;
+  }
+
+  h3 {
+      @apply text-2xl;
+  }
+
+  h4 {
+      @apply text-xl;
+  }
+
+  code {
+    @apply bg-gray-800;
+    @apply text-blue-300;
+    @apply p-4;
+    @apply rounded-lg;
+    @apply text-xs;
+    @apply font-mono;
+  }
+
+  .sticky-footer {
+    @apply text-gray-100;
+    @apply bg-footer;
+    /* @apply fixed; */
+    @apply inset-x-0;
+    @apply bottom-0;
+    @apply p-4;
+  }
+
+
+  .glow-yellow {
+    text-shadow: rgb(34, 30, 13) 3px 0 20px; 
+  }
+
+  .btn-common {
+    @apply m-1 p-1 flex rounded-lg justify-center items-center hover:underline hover:cursor-pointer;
+  }
+  .btn-common-pink {
+    @apply m-1 flex rounded-xl justify-center items-center bg-slate-500 text-white hover:bg-white hover:text-slate-800 hover:border-slate-800 hover:border-2 border-0 p-2 font-bold;
+  }
+  .link-align-center {
+    @apply text-center justify-center items-center;
+  }
+}
+
