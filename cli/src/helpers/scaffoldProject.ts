@@ -11,11 +11,12 @@ import { logger } from "~/utils/logger.js";
 export const scaffoldProject = async ({
   projectName,
   framework,
+  language,
   projectDir,
   pkgManager,
   noInstall,
 }: InstallerOptions) => {
-  const srcDir = path.join(PKG_ROOT, `template/${framework}`);
+  const srcDir = path.join(PKG_ROOT, `template/${framework}/${language}/base`);
 
   if (!noInstall) {
     logger.info(`\nUsing: ${chalk.cyan.bold(pkgManager)}\n`);
@@ -88,7 +89,7 @@ export const scaffoldProject = async ({
 
       if (overwriteDir === "clear") {
         spinner.info(
-          `Emptying ${chalk.cyan.bold(projectName)} and creating t3 app..\n`,
+          `Emptying ${chalk.cyan.bold(projectName)} and creating xumm app..\n`,
         );
         fs.emptyDirSync(projectDir);
       }

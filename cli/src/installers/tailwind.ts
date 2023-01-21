@@ -4,7 +4,7 @@ import fs from "fs-extra";
 import { PKG_ROOT } from "~/consts.js";
 import { addPackageDependency } from "~/utils/addPackageDependency.js";
 
-export const tailwindInstaller: Installer = ({ projectDir }) => {
+export const tailwindInstaller: Installer = ({ projectDir, framework, language }) => {
   addPackageDependency({
     projectDir,
     dependencies: [
@@ -18,7 +18,7 @@ export const tailwindInstaller: Installer = ({ projectDir }) => {
     devMode: true,
   });
 
-  const extrasDir = path.join(PKG_ROOT, "template/extras");
+  const extrasDir = path.join(PKG_ROOT, `template/${framework}/${language}/extras`);
 
   const twCfgSrc = path.join(extrasDir, "config/tailwind.config.cjs");
   const twCfgDest = path.join(projectDir, "tailwind.config.cjs");

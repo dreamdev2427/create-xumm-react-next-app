@@ -1,0 +1,29 @@
+{
+    "start": {
+        "title": "Account Merge",
+        "subtitle": "Merge one account into another to have acces to the XRP reserve",
+        "description": "This xApp will help you to merge two accounts in XUMM",
+        "list_header": "To continue you need:",
+        "list_item_1": "The Tangem card you want to setup a back up card for, already added to XUMM and at hand",
+        "list_item_2": "The Tangem card you want to use as a back up card, already added to XUMM and at hand",
+        "button": "I'm ready, continue"
+    },
+    "wizard": {
+        "paymentOfAmount": "The payment of %{value%} %{token} has been sent",
+        "step_0": {
+            "header": "Step 1",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, cumque.",
+            "button": "Next Step"
+        },
+        "step_1": {
+            "header": "Step 2",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, cumque.",
+            "button": "Next Step"
+        },
+        "step_2": {
+            "header": "Step 3",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, cumque.",
+            "button": "Next Step"
+        }
+    }
+}

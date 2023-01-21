@@ -8,6 +8,7 @@ import { getUserPkgManager } from "~/utils/getUserPkgManager.js";
 interface CreateProjectOptions {
   projectName: string;
   framework: string;
+  language: string;
   packages: PkgInstallerMap;
   noInstall: boolean;
 }
@@ -15,6 +16,7 @@ interface CreateProjectOptions {
 export const createProject = async ({
   projectName,
   framework,
+  language,
   packages,
   noInstall,
 }: CreateProjectOptions) => {
@@ -25,6 +27,7 @@ export const createProject = async ({
   await scaffoldProject({
     projectName,
     framework,
+    language,
     projectDir,
     pkgManager,
     noInstall,
@@ -35,14 +38,15 @@ export const createProject = async ({
   if (framework.includes('next')) installPackages({
     projectDir,
     framework,
+        language,
     pkgManager,
     packages,
     noInstall,
   });
 
   // TODO: Look into using handlebars or other templating engine to scaffold without needing to maintain multiple copies of the same file
-  selectAppFile({ projectDir, packages });
-  selectIndexFile({ projectDir, packages });
+  selectAppFile({ projectDir,framework, packages });
+  selectIndexFile({ projectDir,framework, packages });
 
   return projectDir;
 };

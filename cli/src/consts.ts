@@ -17,11 +17,9 @@ export const TITLE_TEXT = `
                                                                                    |__|  |__|                                                                                            
 `;
 
-export const SUBTITLE_TEXT = ` 
-  _           _  __  ___ _ ____ ___    _____       _   __  __          ___ __  __      
- /_| __  __  / )/__)(_  /_| /  (_   __  /  _) __  /_| /__)/__) __  __ (_  /  )/__)/__/ 
-(  |        (__/ (  /__(  |(   /__     (  __)    (  |/   /            /  (__// ( /  )                                                                                  
-`;
+export const SUBTITLE_TEXT = `
+------------------------------------  a create-t3-app fork  ------------------------------------`;
+
 
 export const DEFAULT_APP_NAME = "my-xumm-app";
 export const CREATE_XUMM_APP = "create-xumm-app";

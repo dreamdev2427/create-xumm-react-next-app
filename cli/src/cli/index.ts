@@ -1,5 +1,5 @@
 import type { AvailablePackages } from "~/installers/index.js";
-import { availablePackages } from "~/installers/index.js";
+import { availablePackages, availableLanguages } from "~/installers/index.js";
 import chalk from "chalk";
 import { Command } from "commander";
 import inquirer from "inquirer";
@@ -23,6 +23,7 @@ interface CliFlags {
 interface CliResults {
   appName: string;
   framework: string;
+  language: string;
   packages: AvailablePackages[];
   flags: CliFlags;
 }
@@ -31,6 +32,7 @@ const defaultOptions: CliResults = {
   appName: DEFAULT_APP_NAME,
   packages: ["nextAuth", "prisma", "tailwind", "trpc"],
   framework: "next",
+  language: "typescript",
   flags: {
     noGit: false,
     noInstall: false,
@@ -68,7 +70,7 @@ export const runCli = async () => {
     )
     .option(
       "-y, --default",
-      "Bypass the CLI and use all default options to bootstrap a new t3-app",
+      "Bypass the CLI and use all default options to bootstrap a new xumm-app",
       false,
     )
     /** START CI-FLAGS */
@@ -120,7 +122,7 @@ export const runCli = async () => {
       `\n The create-xumm-app stack was inspired by ${chalk
         .hex("#E8DCFF")
         .bold(
-          "@t3dotgg",
+          "@t3dotgg and create-t3-app",
         )} and has been used to build awesome fullstack applications like ${chalk
         .hex("#E24A8D")
         .underline("https://ping.gg")} \n`,
@@ -130,7 +132,7 @@ export const runCli = async () => {
   // FIXME: TEMPORARY WARNING WHEN USING YARN 3. SEE ISSUE #57
   if (process.env.npm_config_user_agent?.startsWith("yarn/3")) {
     logger.warn(`  WARNING: It looks like you are using Yarn 3. This is currently not supported,
-  and likely to result in a crash. Please run create-t3-app with another
+  and likely to result in a crash. Please run create-xumm-app with another
   package manager such as pnpm, npm, or Yarn Classic.
   See: https://github.com/t3-oss/create-t3-app/issues/57`);
   }
@@ -166,7 +168,12 @@ export const runCli = async () => {
       }
 
       cliResults.framework= await promptFramework();
-      await promptLanguage();
+
+      // Find available language for user selected framework
+      const languageChoices = availableLanguages[cliResults.framework]
+
+      if (languageChoices) cliResults.language = await promptLanguage(languageChoices);
+
       cliResults.packages = await promptPackages();
       if (!cliResults.flags.noGit) {
         cliResults.flags.noGit = !(await promptGit());
@@ -184,7 +191,7 @@ export const runCli = async () => {
       logger.warn(
         `${CREATE_XUMM_APP} needs an interactive terminal to provide options`,
       );
-      logger.info(`Bootstrapping a default t3 app in ./${cliResults.appName}`);
+      logger.info(`Bootstrapping a default xumm app in ./${cliResults.appName}`);
     } else {
       throw err;
     }
@@ -217,6 +224,7 @@ const promptFramework = async (): Promise<string> => {
     choices: [
       { name: "Next", value: "next", short: "Next" },
       { name: "React", value: "react", short: "React" },
+      { name: "Vue", value: "vue", short: "Vue" },
     ],
     default: "next",
   });
@@ -224,23 +232,28 @@ const promptFramework = async (): Promise<string> => {
   return framework
 };
 
-const promptLanguage = async (): Promise<void> => {
+const promptLanguage = async (choices:string[]): Promise<string> => {
+
+if (choices.length<=1) return (choices[0] || defaultOptions.language)
+
+const choicesMap = choices.map((l)=> { return {name: l[0]?.toUpperCase() + l.substring(1), value: l, short: l[0]?.toUpperCase() + l.substring(1)} })
+
   const { language } = await inquirer.prompt<{ language: string }>({
     name: "language",
     type: "list",
     message: "Will you be using TypeScript or JavaScript?",
-    choices: [
-      { name: "TypeScript", value: "typescript", short: "TypeScript" },
-      { name: "JavaScript", value: "javascript", short: "JavaScript" },
-    ],
+    choices: choicesMap,
     default: "typescript",
   });
 
-  if (language === "javascript") {
+  // A little fun game for the frameworks that have both javascript and typescript options
+/*   if (language === "javascript") {
     logger.error("Wrong answer, using TypeScript instead...");
   } else {
     logger.success("Good choice! Using TypeScript!");
-  }
+  } */
+
+    return language
 };
 
 const promptPackages = async (): Promise<AvailablePackages[]> => {

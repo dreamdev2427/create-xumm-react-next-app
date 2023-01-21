@@ -4,7 +4,7 @@ import { PKG_ROOT } from "~/consts.js";
 import { addPackageDependency } from "~/utils/addPackageDependency.js";
 import type { Installer } from "~/installers/index.js";
 
-export const trpcInstaller: Installer = ({ projectDir, packages }) => {
+export const trpcInstaller: Installer = ({ projectDir, framework, packages }) => {
   addPackageDependency({
     projectDir,
     dependencies: [
@@ -21,7 +21,7 @@ export const trpcInstaller: Installer = ({ projectDir, packages }) => {
   const usingAuth = packages?.nextAuth.inUse;
   const usingPrisma = packages?.prisma.inUse;
 
-  const extrasDir = path.join(PKG_ROOT, "template/extras");
+  const extrasDir = path.join(PKG_ROOT, `template/${framework}/extras`);
 
   const apiHandlerSrc = path.join(extrasDir, "src/pages/api/trpc/[trpc].ts");
   const apiHandlerDest = path.join(projectDir, "src/pages/api/trpc/[trpc].ts");

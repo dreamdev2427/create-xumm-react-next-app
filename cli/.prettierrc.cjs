@@ -2,5 +2,5 @@
 module.exports = {
   ...require("../.prettierrc.cjs"),
   plugins: [require.resolve("prettier-plugin-tailwindcss")],
-  tailwindConfig: "./template/extras/config/tailwind.config.cjs",
+  tailwindConfig: "./template/next/extras/config/tailwind.config.cjs",
 };

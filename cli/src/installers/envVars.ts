@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs-extra";
 import { PKG_ROOT } from "~/consts.js";
 
-export const envVariablesInstaller: Installer = ({ projectDir, packages }) => {
+export const envVariablesInstaller: Installer = ({ projectDir, framework, language, packages }) => {
   const usingAuth = packages?.nextAuth.inUse;
   const usingPrisma = packages?.prisma.inUse;
 
@@ -21,7 +21,7 @@ export const envVariablesInstaller: Installer = ({ projectDir, packages }) => {
   if (envSchemaFile !== "") {
     const envSchemaSrc = path.join(
       PKG_ROOT,
-      "template/extras/src/env/schema",
+      `template/${framework}/${language}/extras/src/env/schema`,
       envSchemaFile,
     );
     const envSchemaDest = path.join(projectDir, "src/env/schema.mjs");
