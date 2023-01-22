@@ -1,6 +1,6 @@
 {
   "name": "@standardconnect/create-xumm-app",
-  "version": "0.0.1",
+  "version": "0.0.1-beta",
   "description": "Quickest way to start a new web app with full stack typesafety",
   "author": "intercoder <intercoder@whirled.io>",
   "maintainers": [
@@ -17,7 +17,7 @@
     "create-xumm-app",
     "init.tips",
     "next.js",
-    "t3-stack",
+    "xumm-stack",
     "tailwind",
     "tRPC",
     "typescript"
@@ -40,9 +40,7 @@
     "format": "turbo format && prettier --write *.{cjs,md,json}",
     "format:check": "turbo format:check && prettier --check *.{cjs,md,json}",
     "check": "turbo lint typecheck format:check && manypkg check",
-    "release": "changeset version",
-    "pub:beta": "cd cli && pnpm pub:beta",
-    "pub:release": "cd cli && pnpm pub:release"
+    "release": "changeset version"
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.4.7",

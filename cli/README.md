@@ -7,5 +7,5 @@
 </p>
 
 <p align="center">
-  Get started with the <a rel="noopener noreferrer" target="_blank" href="https://init.tips">XUMM Stack</a> by running <code>npm create xumm-app@latest</code>
+  Get started with the <a rel="noopener noreferrer" target="_blank" href="">XUMM Stack</a> by running <code>npm create xumm-app@latest</code>
 </p>
