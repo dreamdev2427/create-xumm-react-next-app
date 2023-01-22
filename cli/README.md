@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./media/create-xumm-app-light.png" width="520" alt="" />
+  <img src="https://github.com/standardconnect/create-xumm-app/blob/main/cli/media/create-xumm-app-light.png" width="520" alt="" />
 </p>
 
 <p align="center">
