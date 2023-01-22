@@ -33,6 +33,7 @@ const main = async () => {
   const {
     appName,
     framework,
+    language,
     packages,
     flags: { noGit, noInstall },
   } = await runCli();
@@ -45,6 +46,7 @@ const main = async () => {
   const projectDir = await createProject({
     projectName: appDir,
     framework:framework,
+    language:language,
     packages: usePackages,
     noInstall,
   });

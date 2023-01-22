@@ -1,6 +1,6 @@
 {
   "name": "create-xumm-app",
-  "version": "0.0.3-beta",
+  "version": "0.0.1-beta",
   "description": "Create web application with the create-xumm-app stack",
   "license": "MIT",
   "repository": {
