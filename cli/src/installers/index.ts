@@ -29,7 +29,7 @@ export interface AvailableLanguages {
 
 export const availableLanguages:AvailableLanguages = {
   next:["typescript", "javascript"], // available next language
-  react:[ "javascript"], // available react language
+  react:[ "typescript", "javascript"], // available react language
   vue:[ "javascript"] // available vue language
 }
 
