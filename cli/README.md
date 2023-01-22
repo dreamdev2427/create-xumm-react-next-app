@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/media/create-xumm-app-light.png" width="130" alt="" />
+  <img src="./media/create-xumm-app-light.png" width="130" alt="" />
 </p>
 
 <p align="center">
