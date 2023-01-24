@@ -4,15 +4,16 @@ import fs from "fs-extra";
 import { PKG_ROOT } from "~/consts.js";
 
 type SelectBoilerplateProps = Required<
-  Pick<InstallerOptions, 'projectDir' | 'framework'| 'packages'>
+  Pick<InstallerOptions, 'projectDir' | 'framework'|'language'| 'packages'>
 >;
 // This generates the _app.tsx file that is used to render the app
 export const selectAppFile = ({
   projectDir,
   framework,
+  language,
   packages,
 }: SelectBoilerplateProps) => {
-  const appFileDir = path.join(PKG_ROOT, `template/${framework}/extras/src/pages/_app`);
+  const appFileDir = path.join(PKG_ROOT, `template/${framework}/${language}/extras/src/pages/_app`);
 
   const usingTRPC = packages.trpc.inUse;
   const usingNextAuth = packages.nextAuth.inUse;
@@ -37,9 +38,10 @@ export const selectAppFile = ({
 export const selectIndexFile = ({
   projectDir,
   framework,
+  language,
   packages,
 }: SelectBoilerplateProps) => {
-  const indexFileDir = path.join(PKG_ROOT, `template/${framework}/extras/src/pages/index`);
+  const indexFileDir = path.join(PKG_ROOT, `template/${framework}/${language}/extras/src/pages/index`);
 
   const usingTRPC = packages.trpc.inUse;
   const usingTw = packages.tailwind.inUse;

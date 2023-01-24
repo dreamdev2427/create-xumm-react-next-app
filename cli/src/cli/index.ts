@@ -46,6 +46,7 @@ const defaultOptions: CliResults = {
 };
 
 export const runCli = async () => {
+  
   const cliResults = defaultOptions;
 
   const program = new Command().name(CREATE_XUMM_APP);
@@ -174,7 +175,7 @@ export const runCli = async () => {
 
       if (languageChoices) cliResults.language = await promptLanguage(languageChoices);
 
-      cliResults.packages = await promptPackages();
+      if (cliResults.framework.includes('next')) cliResults.packages = await promptPackages();
       if (!cliResults.flags.noGit) {
         cliResults.flags.noGit = !(await promptGit());
       }
@@ -245,14 +246,6 @@ const choicesMap = choices.map((l)=> { return {name: l[0]?.toUpperCase() + l.sub
     choices: choicesMap,
     default: "typescript",
   });
-
-  // A little fun game for the frameworks that have both javascript and typescript options
-/*   if (language === "javascript") {
-    logger.error("Wrong answer, using TypeScript instead...");
-  } else {
-    logger.success("Good choice! Using TypeScript!");
-  } */
-
     return language
 };
 
