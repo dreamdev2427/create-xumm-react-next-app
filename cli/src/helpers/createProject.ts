@@ -33,22 +33,21 @@ export const createProject = async ({
     noInstall,
   });
 
-
-  console.log(framework)
   // Install the selected packages only for next framework
   // TODO - update to include package customization for react
-  if (framework.includes('next')) installPackages({
-    projectDir,
-    framework,
-        language,
-    pkgManager,
-    packages,
-    noInstall,
-  });
+  if (framework.includes("next"))
+    installPackages({
+      projectDir,
+      framework,
+      language,
+      pkgManager,
+      packages,
+      noInstall,
+    });
 
   // TODO: Look into using handlebars or other templating engine to scaffold without needing to maintain multiple copies of the same file
-  selectAppFile({ projectDir,framework, language, packages });
-  selectIndexFile({ projectDir,framework, language, packages });
+  selectAppFile({ projectDir, framework, language, packages });
+  selectIndexFile({ projectDir, framework, language, packages });
 
   return projectDir;
 };

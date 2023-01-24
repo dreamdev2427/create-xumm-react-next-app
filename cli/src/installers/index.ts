@@ -15,28 +15,28 @@ export const availablePackages = [
   "envVariables",
 ] as const;
 
-export type AvailablePackages = typeof availablePackages[number];
+export type AvailablePackages = (typeof availablePackages)[number];
 
-export const availableFrameworks:string[] = ['next','react','vue'];
-export type AvailableFrameworks = 'next' | 'react'| 'vue';
+export const availableFrameworks: string[] = ["next", "react", "vue"];
+export type AvailableFrameworks = "next" | "react" | "vue";
 
 export interface AvailableLanguages {
-  [key: string]:string[];
+  [key: string]: string[];
   next: string[];
-  react:string[];
+  react: string[];
   vue: string[];
 }
 
-export const availableLanguages:AvailableLanguages = {
-  next:["typescript", "javascript"], // available next language
-  react:[ "typescript", "javascript"], // available react language
-  vue:[ "javascript"] // available vue language
-}
+export const availableLanguages: AvailableLanguages = {
+  next: ["typescript"], // available next language
+  react: ["typescript", "javascript"], // available react language
+  vue: ["javascript"], // available vue language
+};
 
 export interface InstallerOptions {
   projectDir: string;
-  framework:string;
-  language:string;
+  framework: string;
+  language: string;
   pkgManager: PackageManager;
   noInstall: boolean;
   packages?: PkgInstallerMap;

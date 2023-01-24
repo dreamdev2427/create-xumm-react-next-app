@@ -32,7 +32,7 @@ const defaultOptions: CliResults = {
   appName: DEFAULT_APP_NAME,
   packages: ["nextAuth", "prisma", "tailwind", "trpc"],
   framework: "next",
-  language: "typescript",
+  language: "ts",
   flags: {
     noGit: false,
     noInstall: false,
@@ -46,7 +46,7 @@ const defaultOptions: CliResults = {
 };
 
 export const runCli = async () => {
-  
+
   const cliResults = defaultOptions;
 
   const program = new Command().name(CREATE_XUMM_APP);
@@ -235,9 +235,15 @@ const promptFramework = async (): Promise<string> => {
 
 const promptLanguage = async (choices:string[]): Promise<string> => {
 
-if (choices.length<=1) return (choices[0] || defaultOptions.language)
+  const shortNames = choices.map((l) => {
+  if (l.includes('javascript')) return 'js'
+  if (l.includes('typescript')) return 'ts'
+  return null
+})
 
-const choicesMap = choices.map((l)=> { return {name: l[0]?.toUpperCase() + l.substring(1), value: l, short: l[0]?.toUpperCase() + l.substring(1)} })
+if (choices.length<=1) return (shortNames[0] || defaultOptions.language)
+
+const choicesMap = choices.map((l,i)=> { return {name: l[0]?.toUpperCase() + l.substring(1), value: shortNames[i], short: l[0]?.toUpperCase() + l.substring(1)} })
 
   const { language } = await inquirer.prompt<{ language: string }>({
     name: "language",
